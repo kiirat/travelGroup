@@ -12,7 +12,8 @@ const ProfileSchema = new Schema({
         max: 40
     },
     company: {
-        type: String
+        type: String,
+        required: true
     },
     website: {
         type: String
@@ -36,33 +37,33 @@ const ProfileSchema = new Schema({
     },
     experience: [
         {
-            title: {
-                type : String,
-                required: true
-            },
-            company: {
-                type: String,
-                required: true
-            },
-            location: {
-                type: String,
-            },
-            from: {
-                type: Date,
-                required: true 
-            },
-            to :{
-                type: Date,
-            },
-            current: {
-                type: Boolean,
-                default: false
-            },
-            description: {
-                type: String
-            }
+          title: {
+            type: String,
+            required: true
+          },
+          company: {
+            type: String,
+            required: true
+          },
+          location: {
+            type: String
+          },
+          from: {
+            type: Date,
+            required: true
+          },
+          to: {
+            type: Date
+          },
+          current: {
+            type: Boolean,
+            default: false
+          },
+          description: {
+            type: String
+          }
         }
-    ],
+      ],
     education: [
         {
             school: {
