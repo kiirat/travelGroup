@@ -406,19 +406,15 @@ h2.entry-title a{
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background: url(./images/overaly.png);
-}
-/* Logo */
-.logo{
-	background-image: url(./images/presets/preset1/logo.png);
+	background: url(../images/overaly.png);
 }
 
 .parallax1 {
-	background: url(./images/parallax/parallax1.jpg) no-repeat;
+	background: url(../images/parallax/parallax1.jpg) no-repeat;
 }
 
 .parallax2 {
-	background: url(./images/parallax/parallax2.jpg) no-repeat;
+	background: url(../images/parallax/parallax2.jpg) no-repeat;
 }
 
 .parallax {
@@ -616,6 +612,9 @@ header {
 	border-left: 1px solid #e5e5e5;
 }
 
+.top-social a{
+	margin-left: -4px;
+}
 
 .top-social a i {
 	border-right: 1px solid #e5e5e5;
@@ -697,9 +696,7 @@ ul.top-info li{
 	float: right;
 	margin-top: 5px;
 }
-.lang-flag > a + a {
-	margin-left: 3px
-}
+
 .lang-flag a img{
 	width: 20px;
 	height: 20px;
@@ -882,7 +879,7 @@ ul.navbar-nav > li > a i{
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background-image: url(./images/overaly.png);
+	background-image: url(../images/overaly.png);
 }
 
 #main-slide .item img,
@@ -902,7 +899,7 @@ ul.navbar-nav > li > a i{
   transition: opacity 500ms;
 }
 
-#main-slide .owl-item.active .slider-content {
+#main-slide .item.active .slider-content {
   opacity: 1;
   -webkit-transition: opacity 100ms;
   -moz-transition: opacity 100ms;
@@ -1131,44 +1128,48 @@ ul.navbar-nav > li > a i{
 	position: relative;
 }
 
+/*-- Animation */
+.carousel .item.active .animated1 {
+	
+}
 
-.carousel .owl-item.active .animated2,
+.carousel .item.active .animated2,
  .flex-active-slide .animated2{
 	-webkit-animation: lightSpeedIn 1s ease-in 200ms both;
 	animation: lightSpeedIn 1s ease-in 200ms both;
 }
 
-.carousel .owl-item.active .animated3,
+.carousel .item.active .animated3,
 .flex-active-slide .animated3 {
 	-webkit-animation: bounceInLeft 2s ease-in-out 800ms both;
 	animation: bounceInLeft 1.5s ease-in-out 800ms both;
 }
 
-.carousel .owl-item.active .animated4,
+.carousel .item.active .animated4,
 .flex-active-slide .animated4 {
 	-webkit-animation: flipInX 2s ease-in 800ms both;
 	animation: flipInX 2s ease-in 800ms both;
 }
 
-.carousel .owl-item.active .animated5,
+.carousel .item.active .animated5,
 .flex-active-slide .animated5 {
 	-webkit-animation: bounceInLeft 1s ease-in-out 100ms both;
 	animation: bounceInLeft 1s ease-in-out 100ms both;
 }
 
-.carousel .owl-item.active .animated6,
+.carousel .item.active .animated6,
 .flex-active-slide .animated6 {
 	-webkit-animation: bounceIn 1s ease-in 500ms both;
 	animation: bounceIn 1s ease-in 500ms both;
 }
 
-.carousel .owl-item.active .animated7,
+.carousel .item.active .animated7,
 .flex-active-slide .animated7 {
 	-webkit-animation: bounceIn 1s ease-in 500ms both;
 	animation: bounceIn 1s ease-in 500ms both;
 }
 
-.carousel .owl-item.active .animated8,
+.carousel .item.active .animated8,
 .flex-active-slide .animated8{
 	-webkit-animation: bounceInDown 1s ease-in 800ms both;
 	animation: bounceInDown 1s ease-in 800ms both;
@@ -1200,7 +1201,7 @@ ul.navbar-nav > li > a i{
     bottom: 0;
     left: 0;
     right: 0;
-    background-image: url(./images/overaly.png);
+    background-image: url(../images/overaly.png);
 }
 
 .ts-flex-slider .flexslider .slides{
@@ -1627,7 +1628,7 @@ figure.effect-oscar:hover img {
 ================================================== */
 
 .content {
-	background: #f7f7f7 url(./images/p1.png);
+	background: #f7f7f7 url(../images/p1.png);
 	box-shadow: inset 0 0 0 1px #ffffff;
 }
 
@@ -1891,12 +1892,10 @@ figure.effect-oscar:hover img {
 ================================================== */
 
 .footer{
-	padding: 40px 0 0;
+	padding: 40px 0;
 	color: #fff;
 }
-.footer .container {
-	padding-bottom: 40px
-}
+
 .footer-title{
 	font-size: 20px;
 	margin-bottom: 20px;
@@ -2124,7 +2123,7 @@ ul.twitter-list li a.date:hover{
 	position: relative;
 	z-index: 10;
 	margin-top: -120px !important;
-	background: url(./images/form-shadow.png);
+	background: url(../images/form-shadow.png);
 	background-repeat: no-repeat;
 	background-position: center top;
 	width: 370px;
@@ -2343,7 +2342,7 @@ ul.twitter-list li a.date:hover{
 ================================================== */
 
 #team-wrapper {
-	background: #f7f7f7 url(./images/p1.png);
+	background: #f7f7f7 url(../images/p1.png);
 	box-shadow: inset 0 0 0 1px #ffffff;
 }
 
@@ -2603,7 +2602,7 @@ ul.twitter-list li a.date:hover{
 ================================================== */
 
 .action-area{
-	background: #f5f5f5 url(./images/p1.png);
+	background: #f5f5f5 url(../images/p1.png);
 	padding: 20px 0;
 }
 
@@ -3314,59 +3313,3 @@ a.btn.btn-primary.close-styler:hover{
 	border: 0 !important;
 }
 
-.carousel-control {
-	background: none;
-    color: #fff;
-    line-height: 56px;
-    width: 56px;
-    height: 56px;
-    border: 1px solid #fff;
-    border-radius: 100%;
-    font-size: 36px;
-    -moz-transition: all 500ms ease;
-    -webkit-transition: all 500ms ease;
-    -ms-transition: all 500ms ease;
-    -o-transition: all 500ms ease;
-	transition: all 500ms ease;
-	position: absolute;
-}
-.carousel-control:hover {
-    background: #04367d;
-}
-.carousel-control.prev {
-	left: 0
-}
-.carousel-control.next {
-	right: 0;
-}
-.owl-prev, .owl-next {
-	outline: none
-}
-#main-slide .owl-nav {
-    position: absolute;
-	top: 0;
-	top: 50%;
-    margin-top: -28px;
-    width: 100%;
-}
-#main-slide .owl-dots {
-    position: absolute;
-	bottom: 25px;
-	left: 0;
-	right: 0;
-	text-align: center
-}
-#main-slide button.owl-dot {
-	width: 30px;
-    height: 10px;
-    margin: 1px;
-	border-radius: 0;
-	border: 1px solid #fff !important;
-    background: rgba(255,255,255,.5);
-}
-#main-slide button.owl-dot.active, button.owl-dot:hover {
-    background-color: #04367d;
-}
-#main-slide button.owl-dot + .owl-dot {
-	margin-left: 5px
-}
