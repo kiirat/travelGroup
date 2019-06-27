@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types';
 import classnames from 'classnames'
 import { connect } from 'react-redux'
 import { loginUser } from '../actions/authAction'
+import TextFieldGroup from '../front/components/TextFieldGroup'
 
 class Login extends Component {
     constructor () {
@@ -41,6 +42,7 @@ class Login extends Component {
 
     render() {
         const {errors} = this.state
+        console.log(errors)
         return (
             <div className="wrapper-login fadeInDown">
                 <div id="formContent">
@@ -50,15 +52,26 @@ class Login extends Component {
                         <img src={require('../front/images/login-icon.png')} width={100} />
                     </div>
                     {/* Login Form */}
-                    <form onSubmit={this.onSubmit}>
-                        <div className={classnames('group-input',{'has-error' : errors.name, })}>
-                            <input type="text" id="email"   onChange={this.onChange} value={this.state.email} className="fadeIn second" name="email" placeholder="Email"  />
-                            {errors.name && (<div className="feed-back-error">{errors.name}</div>)}
-                        </div>
-                        <div className={classnames('group-input',{'has-error' : errors.name, })}>
-                            <input type="Password" id="password"  onChange={this.onChange} className="fadeIn third" name="password" placeholder="Password"  />
-                            {errors.name && (<div className="feed-back-error">{errors.name}</div>)}
-                        </div>
+                    <form onSubmit={this.onSubmit}>                     
+                        <TextFieldGroup 
+                            type='text'
+                            onChange={this.onChange}
+                            placeholder='Email'
+                            value={this.state.email}
+                            error={errors.email}
+                            name='email'
+                            className='fadeIn second'
+                        />
+
+                        <TextFieldGroup 
+                            type='password'
+                            onChange={this.onChange}
+                            placeholder='Password'
+                            value={this.state.password}
+                            error={errors.password}
+                            name='password'
+                            className='fadeIn third'
+                        />
                         <input type="submit" onChange={this.onChange} className="fadeIn fourth" defaultValue="Log In" />
                     </form>
                     {/* Remind Passowrd */}

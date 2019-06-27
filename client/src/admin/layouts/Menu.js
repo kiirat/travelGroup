@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 
 export default class Menu extends Component {
     render() {
@@ -120,7 +121,7 @@ export default class Menu extends Component {
                             </a>
                             <ul className="treeview-menu">
                                 <li><a href="pages/tables/simple.html"><i className="fa fa-circle-o" /> Simple tables</a></li>
-                                <li><a href="pages/tables/data.html"><i className="fa fa-circle-o" /> Data tables</a></li>
+                                <li><NavLink to='/admin/dataTable'><i className="fa fa-circle-o" /> Data tables</NavLink></li>
                             </ul>
                         </li>
                         <li>

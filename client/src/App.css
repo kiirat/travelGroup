@@ -3221,7 +3221,9 @@ iframe{
 	transform: scale(0.95);
   }
   
-  .wrapper-login input[type=text],.wrapper-login input[type=password] {
+  .wrapper-login input[type=text],
+  .wrapper-login input[type=password],
+  .wrapper-login input[type=email] {
 	background-color: #f6f6f6;
 	border: none;
 	color: #0d0d0d;
@@ -3259,7 +3261,7 @@ iframe{
 	width: 85%;
 	margin: 5px auto 15px;
 }
-.wrapper-login .has-error .form-control {
+.wrapper-login .has-error input {
 	border-color: #a94442;
 }
 
@@ -3400,6 +3402,21 @@ a.logout {
 a.logout img {
 	width: 25px;
 	margin-right: 5px
+}
+.dropdown.user.user-menu.show> .dropdown-menu.show {
+    display: block !important;
+    opacity: 1;
+    visibility: visible;
+    z-index: 9999;
+}
+.navbar-nav>.user-menu>.dropdown-menu>.user-body {
+    background: #ffffff;
+}
+.navbar-custom-menu>.navbar-nav>li>.dropdown-menu {
+    position: absolute;
+    right: 0;
+    left: -56px;
+    top: 23px;
 }
 @media ( min-width: 768px ) {
 	.video-section {

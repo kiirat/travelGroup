@@ -4,6 +4,8 @@ import classnames from 'classnames'
 import { connect } from 'react-redux'
 import { registerUser } from '../actions/authAction';
 import { withRouter } from 'react-router-dom'
+import TextFieldGroup from '../front/components/TextFieldGroup'
+
 
 class Register extends Component {
     constructor() {
@@ -65,23 +67,50 @@ class Register extends Component {
                     </div>
                     {/* Login Form */}
                     <form onSubmit={this.onSubmit}>
-                        <div className={classnames('group-input',{'has-error' : errors.name, })}>
-                            <input type="text" onChange={this.onChange}
-                            id="name" value={this.state.name} className="fadeIn second form-control" name="name" placeholder="Name" />
-                            {errors.name && (<div className="feed-back-error">{errors.name}</div>)}
-                        </div>
-                        <div className={classnames('group-input',{'has-error' : errors.email})}>
-                            <input type="text" onChange={this.onChange} id="Email" value={this.state.email} className="fadeIn third  form-control" name="email" placeholder="Email" />
-                            {errors.email && (<div className="feed-back-error">{errors.email}</div>)}
-                        </div>
-                        <div className={classnames('group-input',{'has-error' : errors.password})}>
-                            <input type="password" onChange={this.onChange}  value={this.state.password} id="password" className="fadeIn third  form-control" name="password" placeholder="password" />
-                            {errors.password && (<div className="feed-back-error">{errors.password}</div>)}
-                        </div>
-                        <div className={classnames('group-input',{'has-error' : errors.password2})}>
-                            <input type="password" onChange={this.onChange}  id="password2" value={this.state.password2} className="fadeIn third  form-control" name="password2" placeholder="password2" />
-                            {errors.password2 && (<div className="feed-back-error">{errors.password2}</div>)}
-                        </div>
+
+                        <TextFieldGroup 
+                            type='text'
+                            onChange={this.onChange}
+                            placeholder='name'
+                            value={this.state.name}
+                            error={errors.name}
+                            name='name'
+                            className='fadeIn second'
+                        />
+                       
+
+
+                        <TextFieldGroup 
+                            type='email'
+                            onChange={this.onChange}
+                            placeholder='Email'
+                            value={this.state.email}
+                            error={errors.email}
+                            name='email'
+                            className='fadeIn third'
+                        />
+                        
+                        <TextFieldGroup 
+                            type='password'
+                            onChange={this.onChange}
+                            placeholder='Password'
+                            value={this.state.password}
+                            error={errors.password}
+                            name='password'
+                            className='fadeIn third'
+                        />
+
+                       
+                        <TextFieldGroup 
+                            type='password'
+                            onChange={this.onChange}
+                            placeholder='password confirm'
+                            value={this.state.password2}
+                            error={errors.password2}
+                            name='password2'
+                            className='fadeIn third'
+                        />
+                        
                         <div>
                             <input type="submit"  onChange={this.onChange} className="fadeIn fourth" value="Save" />
                         </div>
