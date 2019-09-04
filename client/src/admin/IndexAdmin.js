@@ -1,27 +1,29 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link,NavLink,Switch,withRouter } from "react-router-dom";
 import classnames from 'classnames'
 import { connect } from 'react-redux'
 
-import Header from './layouts/Header'
-import Footer from './layouts/Footer'
+import HeaderAdmin from './layouts/HeaderAdmin'
+import FooterAdmin from './layouts/FooterAdmin'
+import HomeAdmin from './components/HomeAdmin'
 import DataTable from './components/DataTable'
+
 
 class IndexAdmin extends Component {
     
     
     
     componentDidMount () {
-        if (!this.props.auth.isAuthenticated) {
-            this.props.history.push('/login')
-        }
+        // if (!this.props.auth.isAuthenticated) {
+        //     this.props.history.push('/login')
+        // }
     }
     render() {
         const routes = [
             {
                 path: "/admin",
                 exact: true,
-                main: () => <h2>Home</h2>
+                main: () => <HomeAdmin />
             },
             {
               path: "/admin/data",
@@ -33,7 +35,7 @@ class IndexAdmin extends Component {
         return (
             <Router>
                 <div className="wrapper admin-view">
-                    <Header/>
+                    <HeaderAdmin/>
                     {/* <Menu/> */}
                     {/* <DataTable /> */}
                         <aside className="main-sidebar">
@@ -155,7 +157,7 @@ class IndexAdmin extends Component {
                                             <li><a href="pages/tables/simple.html"><i className="fa fa-circle-o" /> Simple tables</a></li>
                                             {/* <li><NavLink to='/admin/data'><i className="fa fa-circle-o" /> Data tables</NavLink></li> */}
                                             <li>
-                                                <Link to="/admin/data"><i className="fa fa-circle-o" />Data</Link>
+                                                <NavLink to="/admin/data"><i className="fa fa-circle-o" />Data</NavLink>
                                             </li>
                                         </ul>
                                     </li>
@@ -239,6 +241,9 @@ class IndexAdmin extends Component {
                             </section>
                             {/* /.sidebar */}
                         </aside>
+                        <Switch>
+
+                        
                         {
                             routes.map((route, index) => {
                                 return (
@@ -251,8 +256,9 @@ class IndexAdmin extends Component {
                                 )
                             }
                         )}
+                        </Switch>
                         
-                    <Footer/>
+                    <FooterAdmin/>
                 </div>
             </Router>
         )
@@ -261,4 +267,4 @@ class IndexAdmin extends Component {
 const mapStateToProps = (state) => ({
     auth: state.auth,
 })
-export default connect(mapStateToProps, {})(IndexAdmin)
+export default connect(mapStateToProps, {})(withRouter(IndexAdmin))

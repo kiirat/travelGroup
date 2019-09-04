@@ -1,7 +1,22 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import { PropTypes } from 'prop-types';
 
-export default class Header extends Component {
+import { logoutUser } from '../../actions/authAction'
+import { ClearCurrentProfile } from '../../actions/profileAction'
+
+
+class HeaderAdmin extends Component {
+    onLogOutClick (e) {
+        e.preventDefault();
+        this.props.ClearCurrentProfile()
+        this.props.logoutUser()
+        window.location.href= '/login'
+        // this.props.history.push('/login')
+    }
     render() {
+        const {isAuthenticated, user } = this.props.auth 
         return (
             
             <header className="main-header">
@@ -217,32 +232,16 @@ export default class Header extends Component {
                                 {/* User Account: style can be found in dropdown.less */}
                                 <li className="dropdown user user-menu">
                                     <a href="fake_url" className="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="dist/img/user2-160x160.jpg" className="user-image" alt="User" />
-                                        <span className="hidden-xs">Alexander Pierce</span>
+                                        <img src={user.avatar} className="user-image" alt="User" />
+                                        <span className="hidden-xs">{user.name}</span>
                                     </a>
                                     <ul className="dropdown-menu">
                                         {/* User image */}
                                         <li className="user-header">
-                                            <img src="dist/img/user2-160x160.jpg" className="img-circle" alt="User" />
+                                            <img src={user.avatar} className="img-circle" alt="User" />
                                             <p>
-                                                Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                                                {user.name}
                                             </p>
-                                        </li>
-                                        {/* Menu Body */}
-                                        <li className="user-body">
-                                            <div className="row">
-                                                <div className="col-xs-4 text-center">
-                                                    <a href="fake_url">Followers</a>
-                                                </div>
-                                                <div className="col-xs-4 text-center">
-                                                    <a href="fake_url">Sales</a>
-                                                </div>
-                                                <div className="col-xs-4 text-center">
-                                                    <a href="fake_url">Friends</a>
-                                                </div>
-                                            </div>
-                                            {/* /.row */}
                                         </li>
                                         {/* Menu Footer*/}
                                         <li className="user-footer">
@@ -250,7 +249,7 @@ export default class Header extends Component {
                                                 <a href="fake_url" className="btn btn-default btn-flat">Profile</a>
                                             </div>
                                             <div className="pull-right">
-                                                <a href="fake_url" className="btn btn-default btn-flat">Sign out</a>
+                                                <a href="fake_url" onClick={this.onLogOutClick.bind(this)} className="btn btn-default btn-flat">Sign out</a>
                                             </div>
                                         </li>
                                     </ul>
@@ -266,3 +265,12 @@ export default class Header extends Component {
         )
     }
 }
+HeaderAdmin.protoTypes = {
+    logoutUser : PropTypes.func.isRequired,
+    auth : PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
+}
+const mapStateToProps = (state) =>({
+    auth: state.auth
+}) 
+export default connect(mapStateToProps, {logoutUser, ClearCurrentProfile})(withRouter(HeaderAdmin))

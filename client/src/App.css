@@ -3242,6 +3242,14 @@ iframe{
 	-webkit-border-radius: 5px 5px 5px 5px;
 	border-radius: 5px 5px 5px 5px;
   }
+  .navbar-nav>.user-menu>.dropdown-menu>.user-footer .btn-default {
+    color: #666666;
+    background-color: #f4f4f4;
+    border-color: #ddd;
+    padding: 8px 15px;
+    font-size: 16px;
+    font-weight: 600;
+}
   
 .wrapper-login input[type=text]:focus {
 	background-color: #fff;
@@ -3415,8 +3423,9 @@ a.logout img {
 .navbar-custom-menu>.navbar-nav>li>.dropdown-menu {
     position: absolute;
     right: 0;
-    left: -56px;
-    top: 23px;
+	left: 0;
+	top: 23px;
+    margin-left: -115px;
 }
 @media ( min-width: 768px ) {
 	.video-section {

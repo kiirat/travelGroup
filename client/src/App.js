@@ -1,18 +1,21 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './store'
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken'
 import { setCurrentUser, logoutUser } from './actions/authAction'
+import PrivateRoute from './front/components/common/PrivateRoute'
 
 import Header from './front/components/layout/Header'
 import Home from './front/components/layout/Home'
 import Footer from './front/components/layout/Footer'
 import IndexAdmine from './admin/IndexAdmin'
+import DataTable from './admin/components/DataTable'
 import Login from './authentication/Login';
 import Register from './authentication/Register';
+import { ClearCurrentProfile } from './actions/profileAction';
 
 
 // check for token 
@@ -27,6 +30,7 @@ if(localStorage.jwtToken) {
   const currentTime = Date.now() / 1000;
   if(decoded.exp < currentTime) {
     store.dispatch(logoutUser())
+    store.dispatch(ClearCurrentProfile())
     window.location.href = '/login'
   }
 
@@ -56,6 +60,9 @@ function App() {
                 <Route exact path='/register' component={Register}/>
                 <Route exact path='/login' component={Login}/>
                 <Route exact path='/admin' component={IndexAdmine}/>
+                <Switch>
+                  <PrivateRoute exact path='/admin/data' component={DataTable}/>
+                </Switch>
             {getFooter()}
           {/* <IndexAdmine /> */}
         </div>
